@@ -33,6 +33,9 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 # Further training
 history_fine = model.fit(train_generator, validation_data=validation_generator, epochs=5)
 
+# Saving model
+model.save("skin_disease_model.keras")
+
 
 
 
