@@ -6,7 +6,7 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # Loading a saved model
-model = keras.saving.load_model("skin_disease_model.keras")
+model = keras.saving.load_model("model/skin_disease_model.keras")
 
 # Mapping labels
 labels = ["melanoma", "nevus", "seborrheic keratosis", "eczema", "psoriasis", "lichen planus", "rosacea"]
@@ -20,7 +20,7 @@ def predict():
 
     prediction = model.predict(x)
     predicted_label = labels[np.argmax(prediction)]
-    return jsonify({"disease": predicted_label})
+    return jsonify({"Disease": predicted_label})
 
 if __name__ == "__main__":
     app.run(debug=True)
